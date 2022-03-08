@@ -1,6 +1,6 @@
 import React from 'react';
 
-const App = function App(){
+const App = function(){
     // const App = document.createElement('h1');
     // App.textContent = 'Hello World';
     // 돔 Api는 브라우저의 dom에다가 만드는 것
