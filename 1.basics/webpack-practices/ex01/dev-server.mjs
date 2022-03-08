@@ -8,6 +8,6 @@ const application = express().use(express.static(path.join(path.resolve('.'), 'p
 http
     .createServer(application)
     .on('listening', function(){
-        console.info(`http server runs on ${port}`);
+        console.info("http server runs on ${port}");
     })
 .listen(port);
