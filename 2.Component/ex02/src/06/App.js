@@ -1,10 +1,33 @@
 import React from 'react'
-import styles from './assets/scss/App.scss'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faBell, faCheckCircle, faTimesCircle} from '@fortawesome/free-solid-svg-icons'
 
+// additional ....
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { far } from '@fortawesome/free-regular-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
 const App = () => {
+    library.add(faBell, far, fas, fab);
     return (
-        <div className={styles.App}>
-            <h1 className={styles.Header}>{`SACC & SCSS(css-loader options: {module: true})`}</h1>
+        <div>
+            { /* example */ }
+            <FontAwesomeIcon icon={faBell}/>
+            <FontAwesomeIcon icon={faCheckCircle}/>
+            <FontAwesomeIcon icon={faTimesCircle}/>
+
+            { /* solid */ }
+            <FontAwesomeIcon icon={["fas", "bell"]}/>
+
+            { /* regular */ }
+            <FontAwesomeIcon icon={["far", "bell"]}/>
+
+            { /* brands */ }
+            <FontAwesomeIcon icon={["fab", "apple"]}/>
+            <FontAwesomeIcon icon={["fab", "google"]}/>
+            <FontAwesomeIcon icon={["fab", "github"]}/>
+            <FontAwesomeIcon icon={["fab", "facebook"]}/>
+
         </div>
     )
 }
