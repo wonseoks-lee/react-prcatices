@@ -20,8 +20,8 @@ module.exports = function(env) {
             }, {
                 test: /\.(sa|sc|c)ss$/i,
                 use: [
-                    'style-loader', 
-                    {loader: 'css-loader', options: {modules:'true'}}, 
+                    'style-loader',
+                    {loader: 'css-loader', options: {modules: true}},
                     'sass-loader']
             }, {
                 test: /\.(png|git|jpe?g|svg|ico|tiff?|bmp)$/i,
@@ -36,5 +36,5 @@ module.exports = function(env) {
             compress: true,
             historyApiFallback: true
         } 
-    }
+    };
 }
