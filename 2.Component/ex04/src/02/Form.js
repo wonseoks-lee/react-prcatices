@@ -34,15 +34,15 @@ export default function Form() {
     }
 
     const onChangeAgreeProv = function(e) {
-        const status = e.target.value === 'no' ? 'yes' : 'no';
+        // const status = e.target.value === 'no' ? 'yes' : 'no';
         
         // API 호출
-        const url = `/prov/agree?status=${status}`
-        console.log(url);
-        if(true) {
-            setAgreeProv(status);
-        }
-
+        // const url = `/prov/agree?status=${status}`
+        // console.log(url);
+        // if(true) {
+        // }
+        
+        setAgreeProv(e.target.value === 'no' ? 'yes' : 'no');
     }
     
 
@@ -121,7 +121,7 @@ export default function Form() {
                     name="agreeProv" 
                     value= { agreeProv } 
                     checked={agreeProv === 'yes'}
-                    onChange={onChangeAgreeProv}/>
+                    onChange={e => setAgreeProv(e.target.value === 'no' ? 'yes' : 'no')}/>
                 <label>서비스 약관에 동의합니다.</label>
             </fieldset>
 

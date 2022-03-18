@@ -8,7 +8,7 @@ const Task = ({task}) => {
             <input 
                 type='checkbox' 
                 value = {taskDone}
-                checked={taskDone === true}
+                checked={taskDone}
                 onChange={e => setTaskDone(taskDone === false ? true : false)}
                 />  
             {task.name}
