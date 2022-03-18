@@ -1,9 +1,9 @@
-import React from 'react'
-import styles from './assets/css/Card.css'
+import React, { useState } from 'react'
+import styles from './assets/scss/Card.scss'
 import TaskList from './TaskList'
 
 const Card = ({card}) => {
-    return (
+    const [showDetails, setShowDetails] = useState(false);
         <div className={styles.Card}>
             <div className={styles.Card__Title}>
                 {card.title}
