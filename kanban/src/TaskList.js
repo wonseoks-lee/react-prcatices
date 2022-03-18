@@ -7,7 +7,9 @@ const TaskList = ({tasks}) => {
     return (
         <div className={styles.TaskList}>
             <ul>
-                {tasks.map (task => <Task task={task}/>)}
+                {tasks.map (task => <Task
+                                        key={task.no}
+                                        task={task}/>)}
             </ul>
         </div>
     )
