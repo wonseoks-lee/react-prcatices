@@ -15,6 +15,7 @@ ex03: Component - State
 
 02. 제어 컴포넌트
     1.  input, textarea, option과 같은 폼 컴포넌트 중에 사용자 입력에 따라서 state값이 변경되고 랜더링하는 컴포넌트를 제어(Controlled) 컴포넌트라 한다.
+    2.  
     src/02 제어 컴포넌트
     src/03 비제어 컴포넌트
 
