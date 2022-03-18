@@ -6,7 +6,8 @@ import './assets/Form.css';
 export default function Form() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-    const [validEmail, setValidEmail] = useState("");
+
+    const [validEmail, setValidEmail] = useState(false);
 
     const onChangeInputName = function(e) {
         //  setName(e.target.value);
