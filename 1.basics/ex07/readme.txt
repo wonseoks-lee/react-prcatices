@@ -2,7 +2,7 @@ ex07: ex00.cra Reconfiguration(내가 직접 설정)
 
 1.  설치
 $ npm i -D webpack webpack-cli webpack-dev-server style-loader css-loader node-sass sass-loader babel-loader @babel/core @babel/cli @babel/preset-env @babel/preset-react
-$ npm i reat react-dom
+$ npm i reat react-dom prop-types
 
 2.  설정
     babel.config.json
