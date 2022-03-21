@@ -1,11 +1,14 @@
 import React from 'react'
-import FoodList from './FoodList'
 import MyComponent from './MyComponent'
 
 const App = function() {
     return (
         <div id="App">
-            <MyComponent />
+            <MyComponent 
+                // props01={'문자열'}
+                props02={1000}
+                props03={true}
+                />
         </div>
     )
 }
