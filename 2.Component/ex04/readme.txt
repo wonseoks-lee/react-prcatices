@@ -1,4 +1,4 @@
-ex03: Component - State
+ex04: Component - State
 
 01. 기본 개념
   1. state
