@@ -28,7 +28,7 @@ ex05: Component - Lifecycle
       src/02
 
 03. Clock Component(Class Component Lifecycle 이용): src/03
-03. Clock Component(useEffect Hook 이용): src/04 [과제]
+04. Clock Component(useEffect Hook 이용): src/04 [과제]
 
 1.  설치
 $ npm i -D webpack webpack-cli webpack-dev-server style-loader css-loader node-sass sass-loader babel-loader @babel/core @babel/cli @babel/preset-env @babel/preset-react
