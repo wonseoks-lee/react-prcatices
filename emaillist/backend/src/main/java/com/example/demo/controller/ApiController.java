@@ -17,7 +17,6 @@ import com.example.demo.repository.EmaillistRepository;
 import com.example.demo.vo.EmaillistVo;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:9999"}, allowedHeaders = "*", allowCredentials="false", methods={RequestMethod.GET})
 public class ApiController {
 	
 	@Autowired
