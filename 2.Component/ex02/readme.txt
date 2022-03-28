@@ -13,7 +13,6 @@ CSS in JS(Style Component), Less & Styleable
 ---------------------------------------------------
 06. Font Awesome: Working wtih UI I
 07. React Modal: Working wtih UI II
-08.
 
 
 

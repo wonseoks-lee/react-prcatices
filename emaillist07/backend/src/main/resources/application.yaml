@@ -54,9 +54,16 @@ mybatis:
 ---
 # server
 server:
-   port: 8888
+   port: 8080
    servlet:
       context-path: /
       encoding:
          charset: UTF-8
          enabled: true
+         
+---
+# logging
+logging:
+   level:
+      root: WARN
+      

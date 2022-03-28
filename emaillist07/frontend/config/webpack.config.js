@@ -31,9 +31,9 @@ module.exports = function() {
         },
         devServer: {
             host: '0.0.0.0',
-            port: 9999,
+            port: 9090,
             proxy: {
-                '/api' : 'http://localhost:8888'
+                '/api' : 'http://localhost:8080'
             },
             liveReload: true,
             hot: false,
