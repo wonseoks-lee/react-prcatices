@@ -64,8 +64,7 @@ const Card = ({card}) => {
         getTask();
     }
 
-    const notifyTaskAdd = async function(task) {
-        console.log(task)
+    const notifyTaskAdd = async function(name) {
         try {
             const response = await fetch(`/api/task`, {
             method: 'post',
@@ -73,7 +72,40 @@ const Card = ({card}) => {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify(task)
+            body: JSON.stringify({
+                name : name,
+                cardNo : card.no
+            })
+            });
+
+            if(!response.ok) {
+                console.log("error:", response.status, response.statusText);
+                throw new Error(`${response.status} ${response.statusText}`);
+            }
+
+            const json = await response.json();
+
+            if(json.result !== 'success') {
+                console.log("error:", json.message);
+                throw new Error(`${json.result} ${json.message}`);
+            }
+            
+            getTask();
+        } catch(err) {
+            console.log(err);
+        }
+
+    }
+
+    const deleteTask = async function(no) {
+        try {
+            const response = await fetch(`/api/task?no=${no}`, {
+            method: 'delete',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: null
             });
 
             if(!response.ok) {
@@ -106,7 +138,7 @@ const Card = ({card}) => {
                 showDetails === false ? 
                     null :  <div className={styles.Card__Details}>
                                 {card.description}
-                                <TaskList tasks={tasks} callback={notifyCheckBoxChange} notifyTaskAdd={notifyTaskAdd}/>
+                                <TaskList tasks={tasks} callback={notifyCheckBoxChange} notifyTaskAdd={notifyTaskAdd} deleteTask={deleteTask}/>
                             </div>
             }
         </div>

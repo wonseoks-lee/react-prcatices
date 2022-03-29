@@ -3,10 +3,11 @@ package com.example.demo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -40,19 +41,26 @@ public class ApiController {
 	}
 	
 	@PostMapping("/task")
-	public ResponseEntity<JsonResult> insertTask(TaskVo vo) {
-		System.out.println(vo);
+	public ResponseEntity<JsonResult> insertTask(@RequestBody TaskVo vo) {
+		taskRepository.insert(vo);
 		return ResponseEntity
 				.status(HttpStatus.OK)
-				.body(JsonResult.success(taskRepository.insert(vo)));
+				.body(JsonResult.success(vo));
 	}
 	
 	@PutMapping("/task")
 	public ResponseEntity<JsonResult> updateTaskDone(TaskVo vo) {
-		System.out.println("done...." + vo);
 		return ResponseEntity
 				.status(HttpStatus.OK)
 				.body(JsonResult.success(taskRepository.setDone(vo)));
 		
+	}
+	
+	@DeleteMapping("/task")
+	public ResponseEntity<JsonResult> deleteTask(TaskVo vo) {
+		System.out.println(vo);
+		return ResponseEntity
+				.status(HttpStatus.OK)
+				.body(JsonResult.success(taskRepository.delete(vo)));
 	}
 }

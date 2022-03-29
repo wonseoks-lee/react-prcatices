@@ -5,7 +5,7 @@
 		<![CDATA[	
     		  select no, name, done, card_no
       		    from task where card_no=#{cardNo}
-  		    order by no desc
+  		    order by no
  		]]>	
 	</select>
 	
@@ -29,4 +29,10 @@
 			insert into task values(null, #{name}, 'N', #{cardNo})
 		]]>
 	</insert>
+	
+	<delete id="delete" parameterType="taskvo">
+		<![CDATA[
+			delete from task where no=#{no}
+		]]>
+	</delete>
 </mapper>

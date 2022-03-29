@@ -1,6 +1,6 @@
 import React, { useState }  from 'react'
 import styles from './assets/css/Task.css'
-const Task = ({task, callback}) => {
+const Task = ({task, callback, deleteTask}) => {
     return (
         <li className={styles.TaskList__Task}>
             <input 
@@ -9,7 +9,7 @@ const Task = ({task, callback}) => {
                 onChange={e => {callback(e.target.checked, task.no);}}
                 />
             {task.name}
-            <a href='#' className={styles.TaskList__Task__remove}></a>
+            <a href='#' className={styles.TaskList__Task__remove} onClick={e => deleteTask(task.no)}></a>
         </li>   
     )
 }

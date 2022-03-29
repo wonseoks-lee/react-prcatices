@@ -28,5 +28,10 @@ public class TaskRepository {
 		return 1 == sqlSession.insert("task.insert", vo);
 	}
 
+
+	public Boolean delete(TaskVo vo) {
+		return 1 == sqlSession.delete("task.delete", vo);
+	}
+
 	
 }
