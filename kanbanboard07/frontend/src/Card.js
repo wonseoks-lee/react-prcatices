@@ -90,7 +90,7 @@ const Card = ({card}) => {
                 throw new Error(`${json.result} ${json.message}`);
             }
             
-            getTask();
+            setTasks([json.data, ...tasks])
         } catch(err) {
             console.log(err);
         }
