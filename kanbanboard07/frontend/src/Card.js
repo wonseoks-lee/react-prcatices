@@ -6,33 +6,6 @@ const Card = ({card}) => {
     const [showDetails, setShowDetails] = useState(false);
     const [tasks, setTasks] = useState([]);
 
-    const getTask = async () => {
-        try {
-            const response = await fetch(`/api/tasks?cardNo=${card.no}`, {
-                method: 'get',
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-            
-            if(!response.ok) {
-                console.log("error:", response.status, response.statusText);
-                throw new Error(`${response.status} ${response.statusText}`);
-            }
-            
-            const json = await response.json();
-            
-            if(json.result !== 'success') {
-                console.log("error:", json.message);
-                throw new Error(`${json.result} ${json.message}`);
-            }
-            
-            setTasks(json.data);
-        } catch(err) {
-            console.log(err);
-        }
-    }
-
     const notifyCheckBoxChange = async (done, taskno) => {
         console.log(`/api/task?done=${done}&no=${taskno}&cardNo=${card.no}`);
         try {
@@ -61,7 +34,15 @@ const Card = ({card}) => {
             console.log(err);
         }
 
-        getTask();
+        const newTasks = update(tasks, {
+            [tasks.findIndex(task => task.no === json.data.no)]: {
+                done: {
+                    $set: json.data.done
+                }
+            }
+        });
+
+        setTasks(newTasks)
     }
 
     const notifyTaskAdd = async function(name) {
@@ -130,8 +111,33 @@ const Card = ({card}) => {
     return (
         <div className={styles.Card} >
             <div className={showDetails ? [styles.Card__Title, styles.Card__Title__open].join(' ') : styles.Card__Title} 
-                    onClick={() => {
-                        getTask()
+                    onClick={async () => {
+                        if(!showDetails) {
+                            try {
+                                const response = await fetch(`/api/tasks?cardNo=${card.no}`, {
+                                    method: 'get',
+                                    headers: {
+                                        'Accept': 'application/json'
+                                    }
+                                });
+                                
+                                if(!response.ok) {
+                                    console.log("error:", response.status, response.statusText);
+                                    throw new Error(`${response.status} ${response.statusText}`);
+                                }
+                                
+                                const json = await response.json();
+                                
+                                if(json.result !== 'success') {
+                                    console.log("error:", json.message);
+                                    throw new Error(`${json.result} ${json.message}`);
+                                }
+                                
+                                setTasks(json.data);
+                            } catch(err) {
+                                console.log(err);
+                            }
+                        }
                         setShowDetails(!showDetails)
                     }}>{card.title}</div>
             {
