@@ -85,7 +85,7 @@
 						<exclude>
 							<groupId>org.springframework.boot</groupId>
 							<artifactId>spring-boot-devtools</artifactId>
-						</exclude>
+						</exclude>						
 					</excludes>
 				</configuration>
 			</plugin>
@@ -107,7 +107,8 @@
 						<argument>run</argument>
 						<argument>build</argument>
 					</arguments>
-					<environmentVariables></environmentVariables>
+					<environmentVariables>
+					</environmentVariables>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -130,7 +131,7 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin>						
 		</plugins>
 	</build>
 
