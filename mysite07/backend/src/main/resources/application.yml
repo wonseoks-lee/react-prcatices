@@ -1,6 +1,6 @@
 spring:
    application:
-      name: mysite
+     name: mysite
    profiles:
       active: development
       
@@ -60,6 +60,7 @@ logging:
       console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n"
    level:
       root: INFO
+
 ---
 #
 # production profile configuration
@@ -73,7 +74,7 @@ spring:
          static-locations: classpath:/static/, file:/mysite-uploads/
    datasource:
       driver-class-name: org.mariadb.jdbc.Driver
-      url: jdbc:mysql://192.168.0.10:3307/webdb?characterEncoding=utf8
+      url: jdbc:mysql://192.168.0.51:3307/webdb?characterEncoding=utf8
       username: webdb
       password: webdb   
          
@@ -96,7 +97,7 @@ logging:
       max-history: 30
    level:
       root: INFO
-      com:
-         example:
-            demo:
-               exception: ERROR 
+      me:
+         kickscar:
+            mysite:
+               exception: ERROR        
